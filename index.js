@@ -7,7 +7,7 @@
 let nameUserOfTheGame;
 let scoreLarge;
 let scoreSmall;
-//let scoreGeral;
+let scoreGeral;
 
 //Declaração para usar o promt
 const prompt = require("prompt-sync")();
@@ -21,13 +21,43 @@ function enter(){
 
 }
 
-function CalculateScoreGeral(){
+//Calculando a quantidade de XP
+function calculateScoreGeral(){
     return scoreLarge - scoreSmall;
     
 }
 
+//Verificador de categoria
+function verificPositionsHanking(){
+    scoreGeral = calculateScoreGeral();
+    if(scoreGeral <= 1000){
+        return `Ferro com ${scoreGeral}`;
+    }else if(scoreGeral <= 2000) {
+        return `Bronze com ${scoreGeral}`;
+    }
+    else if(scoreGeral <= 5000) {
+        return `Prata com ${scoreGeral}`;
+    }
+    else if(scoreGeral <= 7000) {
+        return `Ouro com ${scoreGeral}`;
+    }
+    else if(scoreGeral <= 8000) {
+        return `Platina com ${scoreGeral}`;
+    }
+    else if(scoreGeral <= 9000) {
+        return `Ascendente com ${scoreGeral}`;
+    }
+    else if(scoreGeral <= 10000) {
+        return `Imortal com ${scoreGeral}`;
+    }
+    else {
+        return `Radiante com ${scoreGeral}`;
+    }
+}
+
+//Lista o jogador e quantidade de XP e sua categoria.
 function listAllOfUsers(){
-    console.log(`O jogador: ${nameUserOfTheGame} esta com o score: ${CalculateScoreGeral()}`);
+    console.log(`O Herói de nome ${nameUserOfTheGame} está no nível ${verificPositionsHanking()} xp`);
 }
 
 //Executando funções
